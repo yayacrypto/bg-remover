@@ -1,0 +1,16 @@
+BG Remover
+Copyright (c) 2026 yayacrypto
+
+This project uses the following third-party AI model:
+
+MODNet: Trimap-Free Portrait Matting in Real Time
+- Original authors: ZHKKKe and contributors (https://github.com/ZHKKKe/MODNet)
+- Paper: https://arxiv.org/abs/2011.11961
+- License: Apache License 2.0
+- ONNX conversion for the browser: Xenova (https://huggingface.co/Xenova/modnet), Apache License 2.0
+- Loaded at runtime from Hugging Face via Transformers.js (https://huggingface.co/docs/transformers.js), Apache License 2.0
+
+The Apache License 2.0 full text: https://www.apache.org/licenses/LICENSE-2.0
+
+The MIT license in LICENSE covers only this repository's own code, not the
+MODNet model weights or the Transformers.js library.

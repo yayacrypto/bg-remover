@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BG Remover - private, in-browser background removal</title>
+<meta name="description" content="Remove backgrounds from photos of people right in your browser. A real AI model runs on your device - no account, no upload, no paywall.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">&#9986;</span>
+      <div>
+        <h1>BG Remover</h1>
+        <p class="tagline">Remove photo backgrounds with AI - on your device, not a server.</p>
+      </div>
+    </div>
+    <p class="privacy-note">Your photos never leave this page.</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section id="model-status" class="model-status" role="status">
+    <div class="spinner" aria-hidden="true"></div>
+    <div class="model-status-text">
+      <strong id="model-status-title">Loading the AI model</strong>
+      <span id="model-status-detail">First visit downloads the model (~6 MB). After that it is cached by your browser.</span>
+      <div class="progress" aria-hidden="true"><span id="progress-fill"></span></div>
+    </div>
+  </section>
+
+  <section id="drop-section" class="panel hidden" aria-labelledby="drop-heading">
+    <h2 id="drop-heading" class="visually-hidden">Choose a photo</h2>
+    <div id="dropzone" class="dropzone" tabindex="0" role="button" aria-label="Choose or drop a photo">
+      <p class="drop-title">Drop a photo here, click to choose, or paste from clipboard</p>
+      <p class="drop-hint">Best results on photos of people. JPG or PNG. Processed entirely on your device.</p>
+      <input id="file-input" type="file" accept="image/png,image/jpeg,image/webp" hidden>
+    </div>
+  </section>
+
+  <section id="result-section" class="panel hidden" aria-labelledby="result-heading">
+    <div class="result-head">
+      <h2 id="result-heading">Result</h2>
+      <span id="engine-badge" class="badge"></span>
+    </div>
+
+    <div class="compare" id="compare">
+      <img id="img-before" alt="Original photo">
+      <div class="after-wrap" id="after-wrap">
+        <canvas id="canvas-after"></canvas>
+      </div>
+      <input id="slider" type="range" min="0" max="100" value="50" aria-label="Compare before and after">
+      <div class="slider-line" aria-hidden="true"></div>
+    </div>
+
+    <div class="options">
+      <fieldset class="bg-options">
+        <legend>Background</legend>
+        <label class="opt"><input type="radio" name="bg" value="transparent" checked> Transparent</label>
+        <label class="opt"><input type="radio" name="bg" value="white"> White</label>
+        <label class="opt"><input type="radio" name="bg" value="color"> Color <input type="color" id="bg-color" value="#7c6cf0" aria-label="Pick a background color"></label>
+      </fieldset>
+      <div class="actions">
+        <button id="download" class="btn primary" type="button">Download PNG</button>
+        <button id="new-photo" class="btn ghost" type="button">New photo</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="notes">
+    <h2>Good to know</h2>
+    <ul>
+      <li>The AI model (MODNet, Apache-2.0) runs fully on your device. Photos are never uploaded.</li>
+      <li>It is trained on people, so use it for portraits, profile pictures, and selfies - not products or objects.</li>
+      <li>First visit downloads the model (about 6 MB). Your browser caches it, so later visits are fast and can work offline.</li>
+      <li>Fastest in Chrome or Edge (uses your GPU when available, CPU otherwise).</li>
+    </ul>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Made by <a href="https://github.com/yayacrypto">yayacrypto</a>. Free to use, MIT licensed code. Model: <a href="https://huggingface.co/Xenova/modnet">MODNet</a> (Apache-2.0) by ZHKKKe, ONNX conversion by Xenova.</p>
+  </div>
+</footer>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>
