@@ -30,7 +30,7 @@ Honest limits:
 
 - MODNet is trained on **people**. Use it for portraits, profile pictures, and selfies. It is not made for products, animals, or objects.
 - Fine details like loose hair are good but not perfect.
-- The first visit downloads the model (about 6 MB). Your browser caches it, so later visits are fast and can work offline. The page itself and the model load from CDNs on first visit; your photos are never uploaded anywhere.
+- The first visit downloads about 12 MB - the AI model (~6.6 MB) plus its runtime (~5.7 MB) - measured on a fresh browser. Your browser caches these, so later visits are faster. The page code and model load from CDNs on first visit; your photos are never uploaded anywhere.
 
 ## Run it
 
